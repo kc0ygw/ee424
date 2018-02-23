@@ -128,7 +128,7 @@ figure(5);
 plot(1:length(yp),abs(yp));
 ylabel("Amplitude")
 xlabel("Time")
-title("Graph of absolute value of filtered sound with modulated hann window")
+title("Graph of Filtered Chirp")
 
 testa=fft(h1);
 figure(6);
