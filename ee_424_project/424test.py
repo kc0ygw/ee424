@@ -7,9 +7,10 @@ from scipy.io import wavfile
 import youtube_dl
 from subprocess import call
 from numpy import fft
-import matplotlib.pyplot as plt
+import plotly
+from plotly.graph_objs import Scatter, Layout
 
-
+#there are 4 artists with 0-19 songs each
 song_list = { # Neil Young
               "https://www.youtube.com/watch?v=SYUgGs9IStY", # 1  Old Man
               "https://www.youtube.com/watch?v=c-WUo4sFGgA", # 2  The Needle and the Damage Done
@@ -100,7 +101,8 @@ song_list = { # Neil Young
 ydl_opts = {}
 artists = ["NY","TS","FM","TP"]
 songdata=[[0,0],[0,0],[0,0],[0,0]] #initialize the array
-#I think we should make each artist in a folder to make it easeir to rename and select them
+#the input needs to be formatted as a dictionary 
+#dictionaries are cool
 #for urls in song_list:
  #   command = "youtube-dl --extract-audio --audio-format wav " + urls
   #  call(command.split(), shell=False)
@@ -120,9 +122,11 @@ print(songdata[0]) #check that the data was stored properly
 
 clip=songdata[0][1]
 print(clip)
-print(clip[44100:44200])
-plt.plot(clip)
-plt.show()
+print(clip[44100:44200],clip[44100:44200])
+plotly.offline.plot({
+    "data": [Scatter(x=list(range(1,100)),y= clip[44100:44200] )],
+    "layout": Layout(title="hello world")
+})
 #okay now take the fft
 
 
