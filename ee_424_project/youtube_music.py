@@ -1,6 +1,17 @@
 from __future__ import unicode_literals
 import youtube_dl
 from subprocess import call
+import wave
+import math
+import os
+import audioop
+import scipy
+from scipy.io import wavfile
+from playsound import playsound
+
+def fft_chunk_wav(wav_file):
+    """
+    This Function takes a wav file, chunks it into a certain length
 
 song_list = { # Neil Young
               "https://www.youtube.com/watch?v=SYUgGs9IStY", # 1  Old Man

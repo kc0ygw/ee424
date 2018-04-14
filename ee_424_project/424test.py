@@ -5,7 +5,7 @@ from scipy.io import wavfile
 
 
 print("hello world")
-#first open the wave file jk this fucntion is suposed to do both?
+#first open the wave file jk this function is supposed to do both?
 
 
 #then read the wave file
