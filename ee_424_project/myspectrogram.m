@@ -34,7 +34,7 @@ nxm = reshape(nxp, m, 2*numblock-1);
 size(nxm)
 size(hann(m)*ones(1, 2*numblock-1))
 % for ii = 1:1:m
-xmw = nxm.*(hann(m)*ones(1, 2*numblock-1));
+xmw = nxm.*(hann(m)*ones(1, 2*numblock-1))
 % end
 
 nxmf = fft(xmw);
