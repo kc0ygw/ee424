@@ -12,7 +12,7 @@ from playsound import playsound
 
 
 
-song_listNY = { # Neil Young
+song_listNY = [ # Neil Young
               "https://www.youtube.com/watch?v=SYUgGs9IStY", # 1  Old Man
               "https://www.youtube.com/watch?v=c-WUo4sFGgA", # 2  The Needle and the Damage Done
               "https://www.youtube.com/watch?v=pO8kTRv4l3o", # 3  Heart of Gold
@@ -33,8 +33,8 @@ song_listNY = { # Neil Young
               "https://www.youtube.com/watch?v=OBPCTaEwaeA", # 18 Eldorado
               "https://www.youtube.com/watch?v=qJ6hmupAtIg", # 19 Crime in the City (Sixty to Zero Part 1)
               "https://www.youtube.com/watch?v=xDPeKrWqjj8",  # 20 Don't Cry
-}
-song_listTS={
+]
+song_listTS=[
               # Taylor Swift
               "https://www.youtube.com/watch?v=e-ORhEE9VVg", # 1  Blank Space
               "https://www.youtube.com/watch?v=nfWlot6h_JM", # 2  Shake It Off
@@ -56,8 +56,8 @@ song_listTS={
               "https://www.youtube.com/watch?v=oKar-tF__ac", # 18 Sparks Fly
               "https://www.youtube.com/watch?v=LZ34LlaIk88", # 19 Ours
               "https://www.youtube.com/watch?v=D1Xr-JFLxik", # 20 White Horse
-}
-song_listFM={ # Fleetwood Mac
+]
+song_listFM=[ # Fleetwood Mac
               "https://www.youtube.com/watch?v=K_PQ4fRQ5Kc", # 1  Landslide
               "https://www.youtube.com/watch?v=mrZRURcb1cM", # 2  Dreams
               "https://www.youtube.com/watch?v=JDG2m5hN1vo", # 3  The Chain
@@ -69,17 +69,18 @@ song_listFM={ # Fleetwood Mac
               "https://www.youtube.com/watch?v=ROGEHq1WZqU", # 9  As Long As You Follow
               "https://www.youtube.com/watch?v=mnXsvj4Awa0", # 10 Silver Springs
               "https://www.youtube.com/watch?v=lfgyivefgHE", # 11 Sara (1980)
-              "https://www.youtube.com/watch?v=wTi19MPOvDw", # 12 Songbird
+              "https://www.youtube.com/watch?v=z7kmw31nRDU", # 12 Songbird
               "https://www.youtube.com/watch?v=iNPQx_Bb2Fo", # 13 You Make Loving Fun
               "https://www.youtube.com/watch?v=6ul-cZyuYq4", # 14 Go Your Own Way (HQ)
               "https://www.youtube.com/watch?v=TytGVo1O3_w", # 15 Don't Stop
               "https://www.youtube.com/watch?v=sKj1EFeU-cM", # 16 Never Going Back Again
               "https://www.youtube.com/watch?v=npnGTnupBX0", # 17 Over My Head (The Dance)
               "https://www.youtube.com/watch?v=8scHKFwr0og", # 18 Albatross 
-              "https://www.youtube.com/watch?v=InjF8Tuskxj93LU", # 19 Tusk
+              "https://www.youtube.com/watch?v=InjF8xj93LU", # 19 Tusk
               "https://www.youtube.com/watch?v=9b4F_ppjnKU", # 20 Seven Wonders (Live Video)
-}
-song_listTP={              
+]
+
+song_listTP=[              
               # Tom Petty
               "https://www.youtube.com/watch?v=aowSGxim_O8", # 1  Mary Jane's Last Dance
               "https://www.youtube.com/watch?v=h0JvF9vpqx8", # 2  Don't Come Around Here No More
@@ -102,30 +103,19 @@ song_listTP={
               "https://www.youtube.com/watch?v=EULWqD2t6fM", # 19 Little Bit O'Soul - Live
               "https://www.youtube.com/watch?v=OFGvzRmj0SY", # 20 Baby Please Don't Go
               # 
-              }
+              ]
+for index, urls in enumerate(song_listNY):
+     command = "youtube-dl --extract-audio --audio-format wav -o NY-" + str(index) + ".%(ext)s " + urls
+     call(command.split(), shell=False)
 
-ydl_opts = {}
-i=0
-for urls in song_listNY:
-    command = "youtube-dl --extract-audio --audio-format wav -o NY-" + str(i) + ".%(ext)s " + urls
-    call(command.split(), shell=False)
-    i=i+1
+for index, urls in enumerate(song_listTS):
+     command = "youtube-dl --extract-audio --audio-format wav -o TS-" + str(index) + ".%(ext)s " + urls
+     call(command.split(), shell=False)
 
-i=0
-for urls in song_listTS:
-    command = "youtube-dl --extract-audio --audio-format wav -o TS-" + str(i) + ".%(ext)s " + urls
+for index, urls in enumerate(song_listFM):
+    command = "youtube-dl --extract-audio --audio-format wav -o FM-" + str(index) + ".%(ext)s " + urls
     call(command.split(), shell=False)
-    i=i+1
-
-i=0
-for urls in song_listFM:
-    command = "youtube-dl --extract-audio --audio-format wav -o FM-" + str(i) + ".%(ext)s " + urls
-    call(command.split(), shell=False)
-    i=i+1
-
-i=0
-for urls in song_listTP:
-    command = "youtube-dl --extract-audio --audio-format wav -o TP-" + str(i) + ".%(ext)s " + urls
-    call(command.split(), shell=False)
-    i=i+1
+for index, urls in enumerate(song_listTP):
+     command = "youtube-dl --extract-audio --audio-format wav -o TP-" + str(index) + ".%(ext)s " + urls
+     call(command.split(), shell=False)
    
