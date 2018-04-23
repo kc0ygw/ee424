@@ -1,4 +1,5 @@
 
+
 ##whelp here goes
 from __future__ import unicode_literals #there's a shitton of dependancies make sure you have them all
 from __future__ import absolute_import
@@ -93,9 +94,13 @@ parser.add_argument('--train_steps', default=1000, type=int,
                     help='number of training steps')
 def main(argv):
     args = parser.parse_args(argv[1:])
-
+    for key in trainingDic.keys():
+        print(key)
+        print(len(trainingDic[key]))
     # Fetch the data
-    (train_x, train_y), (test_x) = (trainingDic, trainingDic.keys()), trainingDic['FM'][1][1]
+    train_x = pd.DataFrame(trainingDic, index=range(1,21), columns=trainingDic.keys())
+    train_y = pd.Series(trainingDic.keys())
+    test_x = trainingDic['FM'][1][1]
 
     # Feature columns describe how to use the input.
     my_feature_columns = []
@@ -111,8 +116,7 @@ def main(argv):
 
     # Train the Model.
     classifier.train(
-        input_fn=lambda:train_input_fn(train_x, train_y, args.batch_size),
-        steps=args.train_steps)
+        input_fn=lambda:train_input_fn(train_x, train_y, args.batch_size), steps=args.train_steps)
 
     # Evaluate the model.
     eval_result = classifier.evaluate(
