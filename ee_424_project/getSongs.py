@@ -1,14 +1,9 @@
-from __future__ import unicode_literals
+#make sure to only have imports that are used
+#makes it easier to use when not needing to download useless libraires
+#and much easier to understand
 
-import youtube_dl
 from subprocess import call
-import wave
-import math
-import os
-import audioop
-import scipy
-from scipy.io import wavfile
-from playsound import playsound
+
 
 
 
