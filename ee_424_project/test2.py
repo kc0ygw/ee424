@@ -61,7 +61,7 @@ trainingDic={"NY":[],"TS":[],"FM":[],"TP":[]}
  #   command = "youtube-dl --extract-audio --audio-format wav " + urls
   #  call(command.split(), shell=False)
 i=0 #variable to incriment through the array
-location = "/mnt/c/Users/Valery/424/" #location of where the file is, the music needs to be in the same directory
+location = "/home/christopher/Music/music_424" #location of where the file is, the music needs to be in the same directory
 #here is reading the wav
 for file in os.listdir(location):  
     
