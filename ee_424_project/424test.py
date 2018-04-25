@@ -1,5 +1,5 @@
-from __future__ import unicode_literals #there's a shitton of dependancies make sure you have them all
-import wave,math,os, audioop, scipy
+from __future__ import unicode_literals #there's a shitton of dependencies make sure you have them all
+import wave, math, os, audioop, scipy
 import os
 from playsound import playsound
 import scipy.io 
@@ -15,14 +15,12 @@ import tensorflow as tfs
 
 
 trainingDic={"NY":[],"TS":[],"FM":[],"TP":[]}
-#the input needs to be formatted as a dictionary 
-#dictionaries are cool
-#for urls in song_list:
- #   command = "youtube-dl --extract-audio --audio-format wav " + urls
-  #  call(command.split(), shell=False)
-i=0 #variable to incriment through the array
-location = "/mnt/c/Users/Valery/424/" #location of where the file is, the music needs to be in the same directory
+
+#location = "/mnt/c/Users/Valery/424/" #location of where the file is, the music needs to be in the same directory
+location  = "/home/christopher/Music/music_424"
+
 #here is reading the wav
+
 for file in os.listdir(location):  
     
     if file.endswith(".wav") and file.startswith("NY"):
