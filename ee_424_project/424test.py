@@ -14,6 +14,7 @@ import tensorflow as tfs
 #there are 4 artists with 0-19 songs each
 
 
+print("hello world")
 trainingDic={"NY":[],"TS":[],"FM":[],"TP":[]}
 
 #location = "/mnt/c/Users/Valery/424/" #location of where the file is, the music needs to be in the same directory
