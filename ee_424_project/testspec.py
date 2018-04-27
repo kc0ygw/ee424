@@ -24,7 +24,7 @@ f, t, Sxx = create_spectrogram('/home/christopher/D/Neil Young - Alabama-PE0Ak73
 plt.pcolormesh(t, f, Sxx)
 plt.ylabel('Frequency [Hz]')
 plt.xlabel('Time [sec]')
-plt.show()
+plt.plot()
+plt.savefig("NY.png")
 
 
-   
